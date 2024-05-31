@@ -4,8 +4,9 @@ import { IoMenu } from 'react-icons/io5'
 import { RxCross1 } from 'react-icons/rx'
 import { motion } from 'framer-motion'
 const Header = () => {
+    //toggle state
     const [isOpen, setIsOpen] = useState(false)
-    const toggle = () => setIsOpen(!isOpen)
+    const toggle = () => setIsOpen(!isOpen) // toggle function
     return (
 
         <>
