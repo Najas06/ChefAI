@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 const Header = () => {
     //toggle state
     const [isOpen, setIsOpen] = useState(false)
-    const toggle = () => setIsOpen(!isOpen) // toggle function
+    const toggle = () => setIsOpen(!isOpen) 
     return (
 
         <>
