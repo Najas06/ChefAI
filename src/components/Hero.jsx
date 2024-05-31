@@ -22,7 +22,7 @@ const Hero = () => {
                 initial={{opacity:0}}
                 animate={{opacity:1}}
                 transition={{delay:0.2,duration:0.5}}
-                className='text-center mt-10 text-2xl font-semibold mx-8'>Discover a world of culinary possibilities with <span className='text-[#FF725E]'>ChefAI</span> , your ultimate cooking companion powered by artificial intelligence.</motion.p>
+                className='text-center mt-10 text-2xl font-semibold px-8'>Discover a world of culinary possibilities with <span className='text-[#FF725E]'>ChefAI</span> , your ultimate cooking companion powered by artificial intelligence.</motion.p>
                 <motion.h1 
                 initial={{opacity:0}}
                 animate={{opacity:1}}
