@@ -7,10 +7,10 @@ const PostMain = () => {
   return (
     <>
     <motion.div 
-    initial={{opacity:0}}
-    animate={{opacity:1}}
-    transition={{delay:0.3,duration:0.5}}
-    whileInView={{opacity:1}}
+    initial={{ y: 10, opacity: 0 }}
+    animate={{ y: 0, opacity: 1 }}
+    exit={{ y: -10, opacity: 0 }}
+    transition={{delay: 0.3, duration: 0.3 }}
     className='px-10 flex gap-6 mt-10 max-sm:flex-col max-sm:px-3'>
         <div className='bg-[#2A373E] w-1/2 flex px-6 h-70 justify-center py-3 rounded-2xl  items-center max-sm:w-full'>
             <img src={postFirst} alt="" width={'40%'} />
