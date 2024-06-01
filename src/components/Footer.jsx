@@ -6,7 +6,7 @@ import { FaXTwitter } from 'react-icons/fa6'
 const Footer = () => {
     return (
         <>
-            <div className='bg-[#FF725E] w-full'>
+            <div className='bg-[#FF725E] '>
                 <div className='flex justify-between items-center px-4'>
                     <div className='flex justify-center py-10 '>
                         <img src={Logo} alt="logo" width={80} />
@@ -40,8 +40,8 @@ const Footer = () => {
                         <input type="email" placeholder='Enter your email' className='bg-[#D9D9D9] w-full h-[40px] rounded-lg outline-none text-center text-[#2A373E]' />
                         <button className='bg-[#2A373E] text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#212c31]'>Subscribe</button>
                     </div>
-                    <p className='text-[#fff] text-center my-5'>&copy; 2024 ChefAI. All rights reserved.</p>
                 </div>
+            <p className='text-[#fff] text-center mt-8'>&copy; 2024 <span className='text-[#2a373e] font-semibold'>ChefAI</span>. All rights reserved.</p>
             </div>
         </>
     )
