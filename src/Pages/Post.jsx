@@ -5,8 +5,10 @@ import PostMain from '../components/PostMain'
 const Post = () => {
   return (
     <>
+    <div>
     <Header/>
     <PostMain/>
+    </div>
     </>
   )
 }
