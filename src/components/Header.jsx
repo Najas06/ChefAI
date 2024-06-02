@@ -36,15 +36,18 @@ const Header = () => {
                                 animate={{ x: 0, opacity: 1 }}
                                 transition={{ duration: 0.1 }}
                                 className='transition duration-500 ease-in flex-col flex text-end items-center gap-4 px-6 py-6 mt-10 absolute left-0 top-50 right-0 bg-[#dddd] rounded '>
-                                <motion.a
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    transition={{
-                                        duration: 1,
-                                        delay: 0.7,
-                                        ease: [0, 0.71, 0.2, 1.01]
-                                    }}
-                                    href="" className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Home</motion.a>
+                                <Link to={'/home'}>
+                                    <motion.a
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        transition={{
+                                            duration: 1,
+                                            delay: 0.7,
+                                            ease: [0, 0.71, 0.2, 1.01]
+                                        }}
+                                        className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Home</motion.a>
+                                </Link>
+                                <Link to={'/posts'}>
                                 <motion.a
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
@@ -53,7 +56,9 @@ const Header = () => {
                                         delay: 0.8,
                                         ease: [0, 0.71, 0.2, 1.01]
                                     }}
-                                    href="" className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Post</motion.a>
+                                    className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Post</motion.a>
+                                </Link>
+                                <Link to={'/about'}>
                                 <motion.a
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
@@ -62,7 +67,8 @@ const Header = () => {
                                         delay: 0.9,
                                         ease: [0, 0.71, 0.2, 1.01]
                                     }}
-                                    href="" className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>About us</motion.a>
+                                    className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>About us</motion.a>
+                                </Link>
 
                                 <motion.button
                                     initial={{ opacity: 0 }}
