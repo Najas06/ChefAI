@@ -20,8 +20,8 @@ const Header = () => {
                 </Link>
                 <div className='flex gap-6 items-center max-sm:hidden mt-3'>
                     <Link to={'/home'}><a className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Home</a></Link>
-                    <Link to={'/posts'}><a href="" className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Post</a></Link>
-                    <a href="" className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>About us</a>
+                    <Link to={'/posts'}><a  className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Post</a></Link>
+                    <a  className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>About us</a>
                     <button className='transition duration-150 bg-[#FF725E] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2A373E]'>Sign in</button>
                     <button className='transition duration-150 bg-[#263238] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#FF725E]'>Log out</button>
                 </div>
@@ -44,7 +44,7 @@ const Header = () => {
                                         delay: 0.7,
                                         ease: [0, 0.71, 0.2, 1.01]
                                     }}
-                                    href="" className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Home</motion.a>
+                                     className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Home</motion.a>
                                 <motion.a
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
@@ -53,7 +53,7 @@ const Header = () => {
                                         delay: 0.8,
                                         ease: [0, 0.71, 0.2, 1.01]
                                     }}
-                                    href="" className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Post</motion.a>
+                                     className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Post</motion.a>
                                 <motion.a
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
@@ -62,7 +62,7 @@ const Header = () => {
                                         delay: 0.9,
                                         ease: [0, 0.71, 0.2, 1.01]
                                     }}
-                                    href="" className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>About us</motion.a>
+                                     className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>About us</motion.a>
 
                                 <motion.button
                                     initial={{ opacity: 0 }}
