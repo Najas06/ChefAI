@@ -4,10 +4,10 @@ import PostMain from '../components/PostMain'
 
 const Post = () => {
   return (
-    <div>
-      {Header && <Header />}
-      {PostMain && <PostMain />}
-    </div>
+    <>
+    <Header/>
+    <PostMain/>
+    </>
   )
 }
 
