@@ -12,7 +12,7 @@ const Home = () => {
     <Hero/>
     <HeroMain/>
     <HeroAbout/>
-    {/* <Footer/> */}
+    <Footer/>
     </>
   )
 }
