@@ -9,7 +9,7 @@ const PostDishCards = () => {
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -10, opacity: 0 }}
             transition={{delay: 0.5, duration: 0.5 }}
-            className='grid grid-cols-4 gap-5 my-10 mx-6 max-sm:grid-cols-1'>
+            className='grid grid-cols-3 gap-5 my-10 mx-6 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-2'>
                 <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
                     <div className='flex justify-end items-center gap-2'>
                     <h6>User</h6>

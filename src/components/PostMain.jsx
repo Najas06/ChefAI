@@ -11,8 +11,8 @@ const PostMain = () => {
     animate={{ y: 0, opacity: 1 }}
     exit={{ y: -10, opacity: 0 }}
     transition={{delay: 0.3, duration: 0.3 }}
-    className='px-10 flex gap-6 mt-10 max-sm:flex-col max-sm:px-3'>
-        <div className='bg-[#2A373E] w-1/2 flex px-6 h-70 justify-center py-3 rounded-2xl  items-center max-sm:w-full'>
+    className='px-10 flex gap-6 mt-10 max-sm:flex-col max-sm:px-3 max-md:flex-col'>
+        <div className='bg-[#2A373E] w-1/2 flex px-6 h-70 justify-center py-3 rounded-2xl  items-center max-sm:w-full max-md:w-full'>
             <img src={postFirst} alt="" width={'40%'} />
             <p className='text-white ml-6 text-2xl'>
                 Share Recipe Post ! <br />
@@ -20,7 +20,7 @@ const PostMain = () => {
                 <span className='text-[#FF725E] font-semibold'>ChefAI</span> Community
             </p>
         </div>
-        <div className='bg-[#FF725E] w-1/2 px-6 h-70 py-3 rounded-2xl max-sm:w-full items-center'>
+        <div className='bg-[#FF725E] w-1/2 px-6 h-70 py-3 rounded-2xl max-sm:w-full items-center max-md:w-full'>
             <h1 className='text-white text-center px-6 text-xl'>Have a delicious recipe to share? Write it down here and inspire others in the <span className='text-[#2A373E] font-semibold'>ChefAI</span> community!</h1>
             <div className='px-6 flex items-center justify-center mt-3'>
                 <img src={postSecond} alt="" width={'30%'} />
