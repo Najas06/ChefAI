@@ -19,7 +19,7 @@ const Header = () => {
                     </div>
                 </Link>
                 <div className='flex gap-6 items-center max-sm:hidden mt-3'>
-                    <Link to={'/home'}><a href="" className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Home</a></Link>
+                    <Link to={'/home'}><a className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Home</a></Link>
                     <Link to={'/posts'}><a href="" className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Post</a></Link>
                     <a href="" className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>About us</a>
                     <button className='transition duration-150 bg-[#FF725E] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2A373E]'>Sign in</button>
