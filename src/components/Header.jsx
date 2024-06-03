@@ -19,7 +19,7 @@ const Header = () => {
                         <h1 className='text-3xl font-bold text-[#2A373E] mt-5'>ChefAI</h1>
                     </div>
                 </Link>
-                <div className='flex gap-6 items-center max-sm:hidden mt-3'>
+                <div className='flex gap-6 items-center max-sm:hidden max-md:hidden mt-3'>
                     <Link to={'/home'}><p className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Home</p></Link>
                     <Link to={'/posts'}><p className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Post</p></Link>
                     <Link to={'/about'}><p className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>About us</p></Link>
@@ -27,7 +27,7 @@ const Header = () => {
                     <button className='transition duration-150 bg-[#263238] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#FF725E]'>Log out</button>
                     <Link to={'/userProfile'}><img src={user} alt="" className='w-10'/></Link>  
                 </div>
-                <div onClick={toggle} className='sm:hidden'>
+                <div onClick={toggle} className='md:hidden'>
                     {!isOpen ?
                         <IoMenu className='text-3xl mt-3 cursor-pointer' />
                         :

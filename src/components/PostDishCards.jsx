@@ -139,7 +139,7 @@ const PostDishCards = () => {
                     </div>
                 </div>
             </motion.div>
-            <Footer/>
+            {/* <Footer/> */}
         </>
     )
 }
