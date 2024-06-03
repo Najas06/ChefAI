@@ -4,6 +4,7 @@ import Home from './Pages/Home'
 import Post from './Pages/Post'
 import Intro from './Pages/Intro'
 import About from './Pages/About'
+import UserProfile from './Pages/UserProfile'
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path='/home' element={<Home />} />
         <Route path='/posts' element={<Post/>}/>
         <Route path='/about' element={<About/>}/>
+        <Route path='/userProfile' element={<UserProfile/>}/>
       </Routes>
     </>
   )

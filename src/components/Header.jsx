@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Logo from '../assets/Logo.svg'
+import user from '../assets/user.svg'
 import { IoMenu } from 'react-icons/io5'
 import { RxCross1 } from 'react-icons/rx'
 import { motion } from 'framer-motion'
@@ -24,6 +25,7 @@ const Header = () => {
                     <Link to={'/about'}><p className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>About us</p></Link>
                     <button className='transition duration-150 bg-[#FF725E] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2A373E]'>Sign in</button>
                     <button className='transition duration-150 bg-[#263238] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#FF725E]'>Log out</button>
+                    <Link to={'/userProfile'}><img src={user} alt="" className='w-10'/></Link>  
                 </div>
                 <div onClick={toggle} className='sm:hidden'>
                     {!isOpen ?
@@ -35,7 +37,7 @@ const Header = () => {
                                 initial={{ x: '200%', opacity: 0 }}
                                 animate={{ x: 0, opacity: 1 }}
                                 transition={{ duration: 0.1 }}
-                                className='transition duration-500 ease-in flex-col flex text-end items-center gap-4 px-6 py-6 mt-10 absolute left-0 top-50 right-0 bg-[#dddd] rounded '>
+                                className='transition duration-300  flex-col flex text-end items-end gap-4 px-6 py-6 mt-10 absolute left-0 top-50 right-0 bg-[#dddd] rounded '>
                                 <Link to={'/home'}>
                                     <motion.a
                                         initial={{ opacity: 0 }}
@@ -70,12 +72,26 @@ const Header = () => {
                                     className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>About us</motion.a>
                                 </Link>
 
+                                <Link to={'/userProfile'}>
+                                <motion.div 
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{
+                                    duration: 1,
+                                    delay: 1,
+                                    ease: [0, 0.71, 0.2, 1.01]
+                                }}
+                                className='flex items-center gap-2 justify-center'>
+                                    <img src={user} alt="" className='w-10' />
+                                    <p className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Profile</p>
+                                </motion.div>
+                                </Link>
                                 <motion.button
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{
                                         duration: 1.2,
-                                        delay: 1,
+                                        delay: 1.1,
                                         ease: [0, 0.71, 0.2, 1.01]
                                     }}
                                     className='transition duration-150 bg-[#FF725E] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2A373E] max-w-[100px]'>Sign in</motion.button>
@@ -84,7 +100,7 @@ const Header = () => {
                                     animate={{ opacity: 1 }}
                                     transition={{
                                         duration: 1.2,
-                                        delay: 1.1,
+                                        delay: 1.2,
                                         ease: [0, 0.71, 0.2, 1.01]
                                     }}
                                     className='transition duration-150 bg-[#263238] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#FF725E] max-w-[100px]'>Log out</motion.button>
