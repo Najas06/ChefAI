@@ -23,7 +23,7 @@ const Header = () => {
                     <Link to={'/home'}><p className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Home</p></Link>
                     <Link to={'/posts'}><p className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Post</p></Link>
                     <Link to={'/about'}><p className='transition duration-150 text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>About us</p></Link>
-                    <button className='transition duration-150 bg-[#FF725E] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2A373E]'>Sign in</button>
+                    <Link to={'/login'}><button className='transition duration-150 bg-[#FF725E] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2A373E]'>Sign in</button></Link>
                     <button className='transition duration-150 bg-[#263238] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#FF725E]'>Log out</button>
                     <Link to={'/userProfile'}><img src={user} alt="" className='w-10'/></Link>  
                 </div>
@@ -86,7 +86,8 @@ const Header = () => {
                                     <p className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Profile</p>
                                 </motion.div>
                                 </Link>
-                                <motion.button
+                                <Link to={'/login'}>
+                                    <motion.button
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{
@@ -95,6 +96,7 @@ const Header = () => {
                                         ease: [0, 0.71, 0.2, 1.01]
                                     }}
                                     className='transition duration-150 bg-[#FF725E] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2A373E] max-w-[100px]'>Sign in</motion.button>
+                                    </Link>
                                 <motion.button
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
