@@ -7,6 +7,9 @@ import About from './Pages/About'
 import UserProfile from './Pages/UserProfile'
 import AddRecipe from './components/AddRecipe'
 import Auth from './Pages/Auth'
+import ReadMore from './Pages/ReadMore'
+import ProfileEdit from './Pages/ProfileEdit'
+import DishEdit from './Pages/DishEdit'
 
 
 function App() {
@@ -21,6 +24,9 @@ function App() {
         <Route path='/addrecipe' element={<AddRecipe/>}/>
         <Route path='/login' element={<Auth/>}/>
         <Route path='/register' element={<Auth register />}/>
+        <Route path='/post-ReadMore' element={<ReadMore/>}/>
+        <Route path='/profile-edit' element={<ProfileEdit/>}/>
+        <Route path='/dishEdit' element={<DishEdit/>}/>
       </Routes>
     </>
   )

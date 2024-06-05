@@ -1,5 +1,6 @@
 import React from 'react'
 import { motion } from 'framer-motion'
+import { Link } from 'react-router-dom'
 const UserDishCard = () => {
   return (
     <>
@@ -22,7 +23,7 @@ const UserDishCard = () => {
                         </p>
                     </div>
                     <div className='flex justify-center gap-3'>
-                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Edit</button>
+                    <Link to={'/dishEdit'}><button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Edit</button></Link>
                     <button className='bg-red-800 transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-red-900 mt-6 shadow-lg'>Delete</button>
                     </div>
                 </div>

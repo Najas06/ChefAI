@@ -1,6 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Footer from './Footer'
+import { Link } from 'react-router-dom'
 const PostDishCards = () => {
     return (
         <>
@@ -23,7 +24,7 @@ const PostDishCards = () => {
                         </p>
                     </div>
                     <div className='flex justify-center'>
-                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Read More</button>
+                    <Link to={'/post-ReadMore'}><button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Read More</button></Link>
                     </div>
                 </div>
                 <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>

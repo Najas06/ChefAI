@@ -8,7 +8,6 @@ const UserProfile = () => {
     <>
     <Header />
     <UserProfileMain/>
-
     <Footer />
     </>
   )
