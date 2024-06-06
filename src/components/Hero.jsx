@@ -1,6 +1,7 @@
 import React from 'react'
 import upWave from '../assets/upWave.svg'
 import { motion } from 'framer-motion'
+import GenerateDish from './GenerateDish'
 const Hero = () => {
     return (
         <>
@@ -20,6 +21,7 @@ const Hero = () => {
                     <input type="text" className='bg-[#D9D9D9] w-[500px] h-[40px] rounded-lg outline-none text-center max-sm:w-[300px] max-sm:h-[40px]' placeholder='Enter Food Name' />
                     <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] max-sm:px-2'>Generate</button>
                 </motion.div>
+                {/* <GenerateDish/> */}
                 <motion.p 
                 initial={{ y: 10, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
