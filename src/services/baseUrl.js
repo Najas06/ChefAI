@@ -1,0 +1,1 @@
+export const servelURL = "http://localhost:5000"
