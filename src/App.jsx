@@ -10,11 +10,13 @@ import Auth from './Pages/Auth'
 import ReadMore from './Pages/ReadMore'
 import ProfileEdit from './Pages/ProfileEdit'
 import DishEdit from './Pages/DishEdit'
+import Header from './components/Header'
 
 
 function App() {
   return (
     <>
+
       <Routes>
         <Route path='/' element={<Intro />} />
         <Route path='/home' element={<Home />} />

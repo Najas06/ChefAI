@@ -4,7 +4,7 @@ import AuthRegister from '../assets/Auth_register.svg'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Toaster, toast } from 'sonner'
-import { registerAPI } from '../services/allAPI'
+import { loginAPI, registerAPI } from '../services/allAPI'
 const AuthMain = ({ register }) => {
     // store user details in a state
     const [userDetails, setUserDetails] = useState({
@@ -66,6 +66,34 @@ const AuthMain = ({ register }) => {
         }
     }
 
+    const handleLogin = async(e)=>{
+        e.preventDefault()
+        const {email, password} = userDetails
+        if(!email || !password){
+            toast.warning("All fields are required")
+        }
+        else{
+            const result = await loginAPI(userDetails)
+            if(result.status == 200){
+                console.log(result)
+                toast.success('Login Successfull')
+                sessionStorage.setItem('exisitingUser',JSON.stringify(result.data.existingUser))
+                sessionStorage.setItem('token',result.data.token)
+                setUserDetails({
+                    email:"",
+                    password:""
+                })
+                setTimeout(()=>{
+                    navigate('/home')
+                },2500)
+            }
+            else{
+                toast.error(`${result.response.data} !`)
+                console.log(result);
+            }
+        }
+    }
+
     return (
         <>
             <motion.div
@@ -88,9 +116,9 @@ const AuthMain = ({ register }) => {
 
                         {register && <input type="text" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-[#ff725e] focus:ring-[#ff725e] block w-full rounded-md sm:text-sm focus:ring-1 text-[#2a373e]" placeholder="Full Name" onChange={(e) => setUserDetails({ ...userDetails, fullname: e.target.value })} value={userDetails.fullname} />}
 
-                        <input type="text" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-[#ff725e] focus:ring-[#ff725e] block w-full rounded-md sm:text-sm focus:ring-1 text-[#2a373e]" placeholder="Username" onChange={(e) => setUserDetails({ ...userDetails, username: e.target.value })} value={userDetails.username} />
+                        {register && <input type="text" class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-[#ff725e] focus:ring-[#ff725e] block w-full rounded-md sm:text-sm focus:ring-1 text-[#2a373e]" placeholder="Username" onChange={(e) => setUserDetails({ ...userDetails, username: e.target.value })} value={userDetails.username} />}
 
-                        {register && <input type="email" name='email' class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-[#ff725e] focus:ring-[#ff725e] block w-full rounded-md sm:text-sm focus:ring-1 text-[#2a373e]" placeholder="Email" onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })} value={userDetails.email} />}
+                        <input type="email" name='email' class="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-[#ff725e] focus:ring-[#ff725e] block w-full rounded-md sm:text-sm focus:ring-1 text-[#2a373e]" placeholder="Email" onChange={(e) => setUserDetails({ ...userDetails, email: e.target.value })} value={userDetails.email} />
 
                         {register && <input type="file" class="block w-full text-sm text-slate-500
                         file:mr-4 file:py-2 file:px-4
@@ -111,7 +139,7 @@ const AuthMain = ({ register }) => {
                         </div>
                             :
                             <div className='items-center flex flex-col gap-3 mt-3'>
-                                <button className='transition duration-150 bg-[#ff725e] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2a373e]'>Login</button>
+                                <button className='transition duration-150 bg-[#ff725e] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2a373e]' onClick={(e) => handleLogin(e)}>Login</button>
                                 <p>don't have an account? <Link to={'/register'}><span className='text-[#ff725e] font-semibold underline'>Register</span></Link></p>
                             </div>
                         }
@@ -121,7 +149,7 @@ const AuthMain = ({ register }) => {
             </motion.div>
 
             {/* sonner toast  */}
-            <Toaster richColors position='top-left' />
+            <Toaster richColors position='top-center' />
         </>
     )
 }
