@@ -147,7 +147,7 @@ const Header = () => {
                                         //     ease: [0, 0.71, 0.2, 1.01]
                                         // }}
                                         className='flex items-center gap-2 justify-center'>
-                                        <img src={preview ? `${servelURL}/uploads/${preview}` : user}    alt="" className='w-10 rounded-full -mt-3' />
+                                        <img src={preview ? `${servelURL}/uploads/${preview}` : user} alt="" className='w-10 rounded-full -mt-3' />
                                         <p className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Profile</p>
                                     </motion.div>
                                 </Link>
@@ -174,7 +174,6 @@ const Header = () => {
                                     </Link>
                                 }
                             </motion.div>
-
                         </div>}
                 </div>
             </motion.header>

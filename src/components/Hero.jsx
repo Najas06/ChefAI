@@ -3,13 +3,13 @@ import upWave from '../assets/upWave.svg'
 import { motion } from 'framer-motion'
 import GenerateDish from './GenerateDish'
 import { Toaster, toast } from 'sonner'
-import { generateAPI } from '../services/allAPI'
 const Hero = () => {
-    const [dish, setDish] = useState('')
-    console.log(dish);
-    const [token, setToken] = useState('')
-    const [generateDishDetails, setGenerateDishDetails] = useState(null)
+    const [dish, setDish] = useState('') // input dish
+    // console.log(dish);
+    const [token, setToken] = useState('') //when user is logged  store token
+    const [generateDishDetails, setGenerateDishDetails] = useState(null) // store generate dish details
 
+    // handle generate dish
     const handleGenerate = async (e) => {
         e.preventDefault()
         if (token) {
@@ -31,7 +31,7 @@ const Hero = () => {
             toast.error("Please login first")
         }
     }
-    console.log(generateDishDetails);
+    // console.log(generateDishDetails); // show the generate dish details
     useEffect(() => {
         if (sessionStorage.getItem('token')) {
             setToken(sessionStorage.getItem('token'))

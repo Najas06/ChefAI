@@ -7,13 +7,13 @@ const Footer = () => {
     return (
         <>
             <div className='bg-[#FF725E] '>
-                <div className='flex justify-between items-center px-4'>
+                <div className='flex justify-between items-center px-4 max-sm:flex-col  mb-2'>
                     <div className='flex justify-center py-10 '>
                         <img src={Logo} alt="logo" width={80} />
-                        <h1 className='text-3xl font-bold text-[#fff] mt-8'>ChefAI</h1>
+                        <h1 className=' text-3xl font-bold text-[#fff] mt-8'>ChefAI</h1>
                     </div>
                     <div>
-                        <h4 className='text-[#fff]'>1/6/2024</h4>
+                        <h4 className='text-[#2A373E] underline text-xl'>{Date().split(' ').slice(0, 4).join(' ')}</h4>
                     </div>
                 </div>
                 <div className='px-6 flex max-sm:flex-col'>
