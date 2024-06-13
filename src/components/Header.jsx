@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Logo from '../assets/Logo.svg'
 import user from '../assets/user.svg'
 import { IoMenu } from 'react-icons/io5'
@@ -6,7 +6,9 @@ import { RxCross1 } from 'react-icons/rx'
 import { motion } from 'framer-motion'
 import { Link } from 'react-router-dom'
 import { servelURL } from '../services/baseUrl'
+import { ProfileAddUpdateStatus } from '../Context/Context'
 const Header = () => {
+    const {profileUpdateStatus} = useContext(ProfileAddUpdateStatus)
     //toggle state
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
@@ -44,7 +46,7 @@ const Header = () => {
             setToken(token);
 
         }
-    }, []);
+    }, [profileUpdateStatus]);
 
     // useEffect(()=>{
     //     if(userDetails.profileImg){
@@ -88,7 +90,7 @@ const Header = () => {
                     {token ? <button className='transition duration-150 bg-[#263238] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#FF725E]' onClick={handleLogout}>Log out</button>
                         :
                         <Link to={'/login'}><button className='transition duration-150 bg-[#FF725E] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2A373E]'>Sign in</button></Link>}
-                    {token && <Link to={'/userProfile'}><img src={preview ? `${servelURL}/uploads/${preview}` : user} alt="" className='w-10 rounded-full -mt-3' /></Link>}
+                    {token && <Link to={'/userProfile'}><img src={preview ? `${servelURL}/uploads/${preview}` : user} alt="" className='w-10 h-10 rounded-full ' /></Link>}
 
 
                 </div>

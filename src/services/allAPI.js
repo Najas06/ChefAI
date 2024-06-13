@@ -13,5 +13,5 @@ export const loginAPI = async(reqBody)=>{
 
 // profile Update API
 export const profileUpdateAPI = async(reqBody,reqHeader)=>{
-    return await commonAPI('PUT',`${servelURL}/user-profile-update`,reqBody,reqHeader)
+    return await commonAPI('PUT',`${servelURL}/profile-edit`,reqBody,reqHeader)
 }

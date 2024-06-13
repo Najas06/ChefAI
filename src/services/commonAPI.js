@@ -1,15 +1,16 @@
+// import axios
 import axios from "axios";
 
-export const commonAPI = async(httpmethod,url,reqBody,reqHeader)=>{
+export const commonAPI = async(httpmethod, url, reqBody, reqHeader)=>{
     const reqConfiq = {
         method:httpmethod,
         url,
         data:reqBody,
-        header:reqHeader?reqHeader:{'Content-Type':'application/json'}
+        headers:reqHeader?reqHeader:{'Content-Type':'application/json'}
     }
     return await axios(reqConfiq).then((result)=>{
         return result
-    }).catch((error)=>{
-        return error
+    }).catch((err)=>{
+        return err;
     })
 }

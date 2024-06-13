@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { IoArrowBack } from 'react-icons/io5'
 import { Link, useNavigate } from 'react-router-dom'
 import user from '../assets/user.svg'
@@ -6,8 +6,10 @@ import { motion } from 'framer-motion'
 import { Toaster, toast } from 'sonner'
 import { servelURL } from '../services/baseUrl'
 import { profileUpdateAPI } from '../services/allAPI'
+import { ProfileAddUpdateStatus } from '../Context/Context'
 
 const ProfileEditMain = () => {
+    const {setProfileUpdateStatus} = useContext(ProfileAddUpdateStatus)
     const navigate = useNavigate()
     const [userDetails, setUserDetails] = useState({ // store user details in a state from session storage
         fullname: "",
@@ -19,6 +21,7 @@ const ProfileEditMain = () => {
     const [exisitingProfile, setExisitingProfile] = useState("") // store profile image from session storage
     const [preview, setPreview] = useState('')
 
+    // console.log(token);
     const handleUpdate = async (e) => {
         e.preventDefault()
         const { fullname, username, email, password } = userDetails
@@ -31,8 +34,9 @@ const ProfileEditMain = () => {
             reqBody.append("username", username)
             reqBody.append("email", email)
             reqBody.append("password", password)
-            preview ? reqBody.append("profileImg", userDetails.profileImg) : reqBody.append("profileImg", exisitingProfile)
+            preview ? reqBody.append("profileImg",userDetails.profileImg) : reqBody.append("profileImg", exisitingProfile)
 
+            // console.log(token)
             const token = sessionStorage.getItem('token')
             if (preview) {
                 const reqHeader = {
@@ -42,6 +46,9 @@ const ProfileEditMain = () => {
                 const result = await profileUpdateAPI(reqBody, reqHeader)
                 if (result.status == 200) {
                     toast.success("Profile Updated")
+                    // console.log(result)
+                    setProfileUpdateStatus(true)
+                    sessionStorage.setItem('exisitingUser', JSON.stringify(result.data))
                     setTimeout(() => {
                         navigate('/userprofile')
                     }, 2500)
@@ -51,6 +58,7 @@ const ProfileEditMain = () => {
                 }
             }
             else {
+                // console.log(token)
                 const reqHeader = {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`
@@ -58,6 +66,7 @@ const ProfileEditMain = () => {
                 const result = await profileUpdateAPI(reqBody, reqHeader)
                 if (result.status == 200) {
                     toast.success("Profile Updated")
+                    sessionStorage.setItem('exisitingUser', JSON.stringify(result.data))
                     setTimeout(() => {
                         navigate('/userprofile')
                     }, 2500)
