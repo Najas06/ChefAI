@@ -2,9 +2,21 @@ import React from 'react'
 import postFirst from '../assets/postFirst.svg'
 import postSecond from '../assets/postSecond.svg'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { Toaster, toast } from 'sonner'
 
 const PostMain = () => {
+    const navigate = useNavigate()
+    const token = sessionStorage.getItem('token')
+    const addRecipe = ()=>{
+        if(token){
+            navigate('/addrecipe')
+        }
+        else{
+            toast.error('Please login first')
+            setTimeout(()=>{navigate('/login')},2000)
+        }
+    }
   return (
     <>
     <motion.div 
@@ -25,10 +37,11 @@ const PostMain = () => {
             <h1 className='text-white text-center px-6 text-xl'>Have a delicious recipe to share? Write it down here and inspire others in the <span className='text-[#2A373E] font-semibold'>ChefAI</span> community!</h1>
             <div className='px-6 flex items-center justify-center mt-3'>
                 <img src={postSecond} alt="" width={'30%'} />
-                <Link to={'/addrecipe'}><button className='transition duration-150 bg-[#263238] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#FF725E] h-10 ml-8 mt-6'>Click Here</button></Link>
+                <button className='transition duration-150 bg-[#263238] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#FF725E] h-10 ml-8 mt-6' onClick={addRecipe}>Click Here</button>
             </div>
         </div>
     </motion.div>
+    <Toaster richColors position='top-center' />
     </>
   )
 }

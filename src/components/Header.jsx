@@ -90,7 +90,7 @@ const Header = () => {
                     {token ? <button className='transition duration-150 bg-[#263238] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#FF725E]' onClick={handleLogout}>Log out</button>
                         :
                         <Link to={'/login'}><button className='transition duration-150 bg-[#FF725E] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2A373E]'>Sign in</button></Link>}
-                    {token && <Link to={'/userProfile'}><img src={preview ? `${servelURL}/uploads/${preview}` : user} alt="" className='w-10 h-10 rounded-full ' /></Link>}
+                    {token && <Link to={'/userProfile'}><img src={preview ? `${servelURL}/uploads/${preview}` : user} alt="" className='w-10 h-10 rounded-full object-cover' /></Link>}
 
 
                 </div>
@@ -139,7 +139,7 @@ const Header = () => {
                                         className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>About us</motion.a>
                                 </Link>
 
-                                <Link to={'/userProfile'}>
+                                {token && <Link to={'/userProfile'}>
                                     <motion.div
                                         initial={{ opacity: 0 }}
                                         animate={{ opacity: 1 }}
@@ -149,10 +149,10 @@ const Header = () => {
                                         //     ease: [0, 0.71, 0.2, 1.01]
                                         // }}
                                         className='flex items-center gap-2 justify-center'>
-                                        <img src={preview ? `${servelURL}/uploads/${preview}` : user} alt="" className='w-10 rounded-full -mt-3' />
+                                        <img src={preview ? `${servelURL}/uploads/${preview}` : user} alt="" className='w-10 h-10 rounded-full object-cover' />
                                         <p className='transition duration-150 text-xl text-[#2A373E] font-semibold hover:text-[#FF725E] hover:ease-out hover:duration-300'>Profile</p>
                                     </motion.div>
-                                </Link>
+                                </Link>}
                                 {token ? <motion.button
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}

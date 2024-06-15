@@ -15,3 +15,8 @@ export const loginAPI = async(reqBody)=>{
 export const profileUpdateAPI = async(reqBody,reqHeader)=>{
     return await commonAPI('PUT',`${servelURL}/profile-edit`,reqBody,reqHeader)
 }
+
+// add Dish API
+export const addDishAPI = async(reqBody,reqHeader)=>{
+    return await commonAPI('POST',`${servelURL}/add-dish`,reqBody,reqHeader)
+}

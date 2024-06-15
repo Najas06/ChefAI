@@ -1,8 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import Footer from './Footer'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'sonner'
 const PostDishCards = () => {
+    const navigate = useNavigate()
+    const token = sessionStorage.getItem('token')
+    const readMore = () =>{
+        token?navigate('/post-ReadMore'):toast.error('Please login first')
+    }
     return (
         <>
             <motion.div 
@@ -24,7 +30,7 @@ const PostDishCards = () => {
                         </p>
                     </div>
                     <div className='flex justify-center'>
-                    <Link to={'/post-ReadMore'}><button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Read More</button></Link>
+                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg' onClick={readMore}>Read More</button>
                     </div>
                 </div>
                 <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
@@ -40,7 +46,7 @@ const PostDishCards = () => {
                         </p>
                     </div>
                     <div className='flex justify-center'>
-                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Read More</button>
+                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg' onClick={readMore}>Read More</button>
                     </div>
                 </div>
                 <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
@@ -56,7 +62,7 @@ const PostDishCards = () => {
                         </p>
                     </div>
                     <div className='flex justify-center'>
-                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Read More</button>
+                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg' onClick={readMore}>Read More</button>
                     </div>
                 </div>
                 <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
@@ -72,7 +78,7 @@ const PostDishCards = () => {
                         </p>
                     </div>
                     <div className='flex justify-center'>
-                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Read More</button>
+                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg' onClick={readMore}>Read More</button>
                     </div>
                 </div>
                 <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
@@ -88,7 +94,7 @@ const PostDishCards = () => {
                         </p>
                     </div>
                     <div className='flex justify-center'>
-                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Read More</button>
+                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg' onClick={readMore}>Read More</button>
                     </div>
                 </div>
                 <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
@@ -104,7 +110,7 @@ const PostDishCards = () => {
                         </p>
                     </div>
                     <div className='flex justify-center'>
-                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Read More</button>
+                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg' onClick={readMore}>Read More</button>
                     </div>
                 </div>
                 <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
@@ -120,7 +126,7 @@ const PostDishCards = () => {
                         </p>
                     </div>
                     <div className='flex justify-center'>
-                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Read More</button>
+                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg' onClick={readMore}>Read More</button>
                     </div>
                 </div>
                 <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
@@ -136,7 +142,7 @@ const PostDishCards = () => {
                         </p>
                     </div>
                     <div className='flex justify-center'>
-                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Read More</button>
+                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg' onClick={readMore}>Read More</button>
                     </div>
                 </div>
             </motion.div>

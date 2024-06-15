@@ -78,7 +78,7 @@ const Hero = () => {
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: -10, opacity: 0 }}
                     transition={{ delay: 0.5, duration: 0.5 }}
-                    className='text-center mt-6'>Powered By <span className='font-bold text-green-700'>EDAMAM</span></motion.h1>
+                    className='text-center mt-6'>Powered By <span className='font-bold text-green-700'>TheMealDB</span></motion.h1>
                 <div>
                     <img src={upWave} alt="" className='w-full object-contain' />
                 </div>

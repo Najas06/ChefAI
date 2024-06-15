@@ -27,7 +27,7 @@ const GenerateDish = ({ generateDishDetails }) => {
                     transition={{ delay: 0.4, duration: 0.4 }}
                     className='w-1/2 max-lg:w-full'
                     >
-                    <h1 className='text-lg underline'>Generate Dish Details Powered By <span className='text-green-700 font-semibold'>EDAMAM</span></h1>
+                    <h1 className='text-lg underline'>Generate Dish Details Powered By <span className='text-green-700 font-semibold'>TheMealDB</span></h1>
                     <br />
                     <h1 className='text-2xl'>Dish Name: <span className='text-green-700 font-semibold'>{generateDishDetails.strMeal}</span></h1>
                     <br />
