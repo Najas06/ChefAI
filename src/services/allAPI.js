@@ -25,3 +25,13 @@ export const addDishAPI = async(reqBody,reqHeader)=>{
 export const userDishAPI = async(reqHeader)=>{
     return await commonAPI("GET",`${servelURL}/user/all_Dishes`,"",reqHeader)
 }
+
+// user DishUpadate API
+export const userDishUpdateAPI = async(id,reqBody,reqHeader)=>{
+    return await commonAPI('PUT',`${servelURL}/user/update_dish/${id}`,reqBody,reqHeader)
+}
+
+// get all dishes API
+export const getAllDishesAPI = async(searchKey)=>{
+    return await commonAPI('GET',`${servelURL}/all_dishes?search=${searchKey}`,"","")
+}

@@ -3,28 +3,88 @@ import { IoArrowBack } from 'react-icons/io5'
 import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { servelURL } from '../services/baseUrl'
+import { Toaster, toast } from 'sonner'
+import { userDishUpdateAPI } from '../services/allAPI'
 
 const DishEditMain = () => {
     const navigate = useNavigate()
-    const [editDish, setEditDish] = useState({
+    const [editDish, setEditDish] = useState({ // data store from session storage
         dishName:"",
         dishDescription:"",
         dishIngredients:[],
         dishImage:""
     })
-    const [editIngred,setEditIngred] = useState("")
-    const [preview, setPreview] = useState("")
-    const [editImg, setEditImg] = useState("")
+    const [editIngred,setEditIngred] = useState("") // user input for ingredients
+    const [preview, setPreview] = useState("") // preview image
+    const [editImg, setEditImg] = useState("") // user input for image
 
 
     const handleClose = ()=>{
-        sessionStorage.removeItem('dishEditDetails')
+        sessionStorage.removeItem('dishEditDetails') // remove session storage
         navigate('/userProfile')
     }
+
+    const handleUpdateDish = async(e)=>{
+        e.preventDefault()
+        const {dishName,dishDescription,dishIngredients,dishImage} = editDish
+        if(!dishName || !dishDescription || !dishIngredients || !dishImage){
+            toast.error('All fields are required')
+        }
+        else{
+            const reqBody = new FormData()
+            reqBody.append("dishname",dishName)
+            reqBody.append("description",dishDescription)
+            reqBody.append("ingredients",dishIngredients)
+            {preview?reqBody.append("image",editImg):reqBody.append("image",dishImage)}
+
+            const token = sessionStorage.getItem('token')
+            
+            if(preview){
+                const reqHeader = {
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': `Bearer ${token}`
+                }
+                const result = await userDishUpdateAPI(editDish._id,reqBody,reqHeader)
+                if(result.status == 200){
+                    toast.success('Dish updated successfully')
+                    sessionStorage.removeItem('dishEditDetails')
+                    sessionStorage.setItem('dishEditDetails',JSON.stringify(result.data))
+                    setTimeout(()=>{
+                        navigate('/userProfile')
+                    },2000)
+                    // console.log(result);
+                }else{
+                    toast.error('Something went wrong')
+                    // console.log(result);
+                }
+            }
+            else{
+                const reqHeader = {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}`
+                }
+                const result = await userDishUpdateAPI(editDish._id,reqBody,reqHeader)
+                if(result.status == 200){
+                    toast.success('Dish updated successfully')
+                    sessionStorage.removeItem('dishEditDetails')
+                    sessionStorage.setItem('dishEditDetails',JSON.stringify(result.data))
+                    setTimeout(()=>{
+                        navigate('/userProfile')
+                    },2000)
+                    // console.log(result);
+                }else{
+                    toast.error('Something went wrong')
+                    // console.log(result);
+                }
+            }
+        }
+
+    }
     useEffect(()=>{
-        if(sessionStorage.getItem('dishEditDetails')){
+        if(sessionStorage.getItem('dishEditDetails')){ // data store from session storage when page load
             const dish = JSON.parse(sessionStorage.getItem('dishEditDetails'))
             setEditDish({
+                _id:dish._id,
                 dishName:dish.dishname,
                 dishDescription:dish.description,
                 dishImage:dish.image
@@ -33,7 +93,7 @@ const DishEditMain = () => {
         }
     },[])
     useEffect(()=>{
-        editImg?setPreview(URL.createObjectURL(editImg)):setPreview("")
+        editImg?setPreview(URL.createObjectURL(editImg)):setPreview("") // preview image when user select image
     },[editImg])
     useEffect(()=>{
         if(editIngred){
@@ -41,7 +101,7 @@ const DishEditMain = () => {
         }
     },[editIngred])
 
-    console.log(editDish);
+    // console.log(editDish);
     return (
         <>
             <motion.div
@@ -79,11 +139,12 @@ const DishEditMain = () => {
 
                         
                        <div className='mt-5 flex justify-center'>
-                       <button className='transition duration-150 bg-[#ff725e] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2a373e]'>Submit</button>
+                       <button className='transition duration-150 bg-[#ff725e] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2a373e]' onClick={(e)=>handleUpdateDish(e)}>Update</button>
                        </div>
                     </div>
                 </div>
             </motion.div>
+            <Toaster richColors position='top-center' />
         </>
     )
 }

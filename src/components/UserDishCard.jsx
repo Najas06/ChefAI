@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { userDishAPI } from '../services/allAPI'
 import { Toaster, toast } from 'sonner'
 import { servelURL } from '../services/baseUrl'
@@ -57,7 +57,7 @@ const UserDishCard = () => {
                                 }`} alt="" width={30}  className='rounded-full object-cover h-[30px]' />
                         </div>
                         <h3 className='text-xl font-bold text-center'>{item.dishname}</h3>
-                        <div className='flex justify-center items-center gap-3 mt-6'>
+                        <div className='flex justify-center items-center gap-3 mt-6 h-[300px]'>
                             <img src={`${servelURL}/uploads/${item.image}`} alt="" className='w-1/2 rounded-lg' />
                             <p className='text-center text-sm'>{item.description.split(' ').slice(0, 40).join(' ')}
                             </p>

@@ -7,8 +7,8 @@ const ReadMore = () => {
     return (
         <>
             <Header />
-           <ReadMoreMain/>
-            <Footer/>
+            <ReadMoreMain />
+            <Footer />
         </>
     )
 }
