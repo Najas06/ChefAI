@@ -20,3 +20,8 @@ export const profileUpdateAPI = async(reqBody,reqHeader)=>{
 export const addDishAPI = async(reqBody,reqHeader)=>{
     return await commonAPI('POST',`${servelURL}/add-dish`,reqBody,reqHeader)
 }
+
+// user Dish API
+export const userDishAPI = async(reqHeader)=>{
+    return await commonAPI("GET",`${servelURL}/user/all_Dishes`,"",reqHeader)
+}

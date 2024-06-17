@@ -1,70 +1,82 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { userDishAPI } from '../services/allAPI'
+import { Toaster, toast } from 'sonner'
+import { servelURL } from '../services/baseUrl'
+
 const UserDishCard = () => {
-  return (
-    <>
-    <motion.div 
-            initial={{ y: 10, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
-            transition={{delay: 0.5, duration: 0.5 }}
-            className='grid grid-cols-3 gap-5 mt-10 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-2'>
-                <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
-                    <div className='flex justify-end items-center gap-2'>
-                    <h6>User</h6>
-                    <img src="https://static.vecteezy.com/system/resources/previews/019/896/012/original/female-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png" alt="" width={30} />
+    const navigate = useNavigate()
+    const [dishes, setDishes] = useState([])
+    const [userDetails, setUserDetails] = useState({})
+    const token = sessionStorage.getItem('token')
+
+    const getDishes = async () => {
+        if (token) {
+            const reqHeader = {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+            const result = await userDishAPI(reqHeader)
+            if (result.status == 200) {
+                setDishes(result.data)
+            }
+            else {
+                console.log(result)
+            }
+        }
+        else {
+            toast.error('Please login first')
+        }
+    }
+    console.log(dishes);
+
+    const editDish = (item) => {
+        sessionStorage.setItem('dishEditDetails', JSON.stringify(item))
+        navigate('/dishEdit')
+    }
+
+    useEffect(() => {
+        getDishes()
+        setUserDetails(JSON.parse(sessionStorage.getItem('exisitingUser')))
+    }, [])
+    return (
+
+        <>
+            <motion.div
+                initial={{ y: 10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                transition={{ delay: 0.5, duration: 0.5 }}
+                className='grid grid-cols-3 gap-5 mt-10 max-sm:grid-cols-1 max-md:grid-cols-2 max-lg:grid-cols-2'>
+                {dishes ? dishes.map((item) => (
+                    <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
+                        <div className='flex justify-end items-center gap-2'>
+                            <h6>{userDetails.fullname}</h6>
+                            <img src={`${servelURL}/uploads/${userDetails.profileImg
+                                }`} alt="" width={30}  className='rounded-full object-cover h-[30px]' />
+                        </div>
+                        <h3 className='text-xl font-bold text-center'>{item.dishname}</h3>
+                        <div className='flex justify-center items-center gap-3 mt-6'>
+                            <img src={`${servelURL}/uploads/${item.image}`} alt="" className='w-1/2 rounded-lg' />
+                            <p className='text-center text-sm'>{item.description.split(' ').slice(0, 40).join(' ')}
+                            </p>
+                        </div>
+                        <div className='flex justify-center gap-3'>
+                            <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg' onClick={() => editDish(item)}>Edit</button>
+                            <button className='bg-red-800 transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-red-900 mt-6 shadow-lg'>Delete</button>
+                        </div>
                     </div>
-                    <h3 className='text-xl font-bold text-center'>Dish Name</h3>
-                    <div className='flex justify-center items-center gap-3 mt-6'>
-                        <img src="https://eu.ooni.com/cdn/shop/articles/Ooni_Diablo_resized.jpg?height=300&v=1599659718&width=300" alt="" className='w-1/2 rounded-lg' />
-                        <p className='text-center text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut corrupti debitis quidem libero, laborum cupiditate ullam sunt deleniti nostrum, iusto labore dignissimos veritatis fuga, quam doloribus accusamus hic? Iste, explicabo!
-                        </p>
-                    </div>
-                    <div className='flex justify-center gap-3'>
-                    <Link to={'/dishEdit'}><button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Edit</button></Link>
-                    <button className='bg-red-800 transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-red-900 mt-6 shadow-lg'>Delete</button>
-                    </div>
-                </div>
-                <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
-                    <div className='flex justify-end items-center gap-2'>
-                    <h6>User</h6>
-                    <img src="https://static.vecteezy.com/system/resources/previews/019/896/012/original/female-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png" alt="" width={30} />
-                    </div>
-                    <h3 className='text-xl font-bold text-center'>Dish Name</h3>
-                    <div className='flex justify-center items-center gap-3 mt-6'>
-                        <img src="https://eu.ooni.com/cdn/shop/articles/Ooni_Diablo_resized.jpg?height=300&v=1599659718&width=300" alt="" className='w-1/2 rounded-lg' />
-                        <p className='text-center text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut corrupti debitis quidem libero, laborum cupiditate ullam sunt deleniti nostrum, iusto labore dignissimos veritatis fuga, quam doloribus accusamus hic? Iste, explicabo!
-                        </p>
-                    </div>
-                    <div className='flex justify-center gap-3'>
-                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Edit</button>
-                    <button className='bg-red-800 transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-red-900 mt-6 shadow-lg'>Delete</button>
-                    </div>
-                </div>
-                <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
-                    <div className='flex justify-end items-center gap-2'>
-                    <h6>User</h6>
-                    <img src="https://static.vecteezy.com/system/resources/previews/019/896/012/original/female-user-avatar-icon-in-flat-design-style-person-signs-illustration-png.png" alt="" width={30} />
-                    </div>
-                    <h3 className='text-xl font-bold text-center'>Dish Name</h3>
-                    <div className='flex justify-center items-center gap-3 mt-6'>
-                        <img src="https://eu.ooni.com/cdn/shop/articles/Ooni_Diablo_resized.jpg?height=300&v=1599659718&width=300" alt="" className='w-1/2 rounded-lg' />
-                        <p className='text-center text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut corrupti debitis quidem libero, laborum cupiditate ullam sunt deleniti nostrum, iusto labore dignissimos veritatis fuga, quam doloribus accusamus hic? Iste, explicabo!
-                        </p>
-                    </div>
-                    <div className='flex justify-center gap-3'>
-                    <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg'>Edit</button>
-                    <button className='bg-red-800 transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-red-900 mt-6 shadow-lg'>Delete</button>
-                    </div>
-                </div>
+                ))
+                    :
+                    <p className='text-center text-2xl text-[#2A373E]'>There is no dish 😒</p>
+                }
               
+
             </motion.div>
-    </>
-  )
+            <Toaster richColors position='top-center' />
+        </>
+    )
 }
 
 export default UserDishCard
