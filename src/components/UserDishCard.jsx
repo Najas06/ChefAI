@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
-import { userDishAPI } from '../services/allAPI'
+import { userDeleteDishAPI, userDishAPI } from '../services/allAPI'
 import { Toaster, toast } from 'sonner'
 import { servelURL } from '../services/baseUrl'
 
@@ -36,6 +36,28 @@ const UserDishCard = () => {
         navigate('/dishEdit')
     }
 
+    const deleteDish = async (id) => {
+       
+        const token = sessionStorage.getItem('token')
+        if (token) {
+            const reqHeader = {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+            const result = await userDeleteDishAPI(id, reqHeader)
+            if (result.status == 200) {
+                toast.success('Dish deleted successfully')
+                getDishes()
+            }
+            else {
+                console.log(result)
+            }
+        }
+        else {
+            toast.error('Please login first')
+        }
+
+    }
     useEffect(() => {
         getDishes()
         setUserDetails(JSON.parse(sessionStorage.getItem('exisitingUser')))
@@ -54,7 +76,7 @@ const UserDishCard = () => {
                         <div className='flex justify-end items-center gap-2'>
                             <h6>{userDetails.fullname}</h6>
                             <img src={`${servelURL}/uploads/${userDetails.profileImg
-                                }`} alt="" width={30}  className='rounded-full object-cover h-[30px]' />
+                                }`} alt="" width={30} className='rounded-full object-cover h-[30px]' />
                         </div>
                         <h3 className='text-xl font-bold text-center'>{item.dishname}</h3>
                         <div className='flex justify-center items-center gap-3 mt-6 h-[300px]'>
@@ -64,14 +86,14 @@ const UserDishCard = () => {
                         </div>
                         <div className='flex justify-center gap-3'>
                             <button className='bg-[#FF725E] transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-[#e65b49] mt-6 shadow-lg' onClick={() => editDish(item)}>Edit</button>
-                            <button className='bg-red-800 transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-red-900 mt-6 shadow-lg'>Delete</button>
+                            <button className='bg-red-800 transition duration-150 text-white px-4 py-1 rounded-xl font-semibold hover:bg-red-900 mt-6 shadow-lg' onClick={() => deleteDish(item._id)}>Delete</button>
                         </div>
                     </div>
                 ))
                     :
                     <p className='text-center text-2xl text-[#2A373E]'>There is no dish 😒</p>
                 }
-              
+
 
             </motion.div>
             <Toaster richColors position='top-center' />

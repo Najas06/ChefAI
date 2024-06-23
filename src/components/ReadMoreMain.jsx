@@ -3,6 +3,8 @@ import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { IoArrowBack } from 'react-icons/io5'
 import { servelURL } from '../services/baseUrl'
+import Feedback from './Feedback'
+import Reviews from './Reviews'
 const ReadMoreMain = () => {
   const navigate = useNavigate()
   const [dish, setDish] = useState({
@@ -49,10 +51,17 @@ const ReadMoreMain = () => {
                         <h1 className='text-4xl font-semibold text-[#2A373E] underline'>{dish.dishname}</h1>
                         <p className='mt-3'><span className='font-semibold'>Recipe Ingredient</span>: {dish.ingredients} </p>
                         <p className='mt-3'><span className='font-semibold'>Instruction</span>: {dish.description}</p>
-                        
-
                     </div>
                 </div>
+            </motion.div>
+            <motion.div
+            initial={{ y: 10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{delay: 0.4, duration: 0.4 }}
+            className='mx-6 flex justify-between my-6 gap-5 max-md:flex-col-reverse'>
+            <Reviews/>
+            <Feedback/>
             </motion.div>
     </>
   )

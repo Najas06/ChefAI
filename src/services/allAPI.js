@@ -35,3 +35,9 @@ export const userDishUpdateAPI = async(id,reqBody,reqHeader)=>{
 export const getAllDishesAPI = async(searchKey)=>{
     return await commonAPI('GET',`${servelURL}/all_dishes?search=${searchKey}`,"","")
 }
+
+
+//user dish delete API
+export const userDeleteDishAPI = async(id,reqHeader)=>{
+    return await commonAPI('DELETE',`${servelURL}/user/delete_dish/${id}`,{},reqHeader) // The reason your API call contains an empty object {} in the reqBody section for a DELETE request might be a misunderstanding of how DELETE requests typically work.
+}
