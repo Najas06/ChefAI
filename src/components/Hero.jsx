@@ -24,6 +24,7 @@ const Hero = () => {
                     setDish("")
                 } catch (error) {
                     setGenerateDishDetails(null)
+                    toast.error(`${dish} is not found in the database`)
                 }
             }
         }
