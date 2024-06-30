@@ -22,14 +22,14 @@ const UserDishCard = () => {
                 setDishes(result.data)
             }
             else {
-                console.log(result)
+                //console.log(result)
             }
         }
         else {
             toast.error('Please login first')
         }
     }
-    console.log(dishes);
+    //console.log(dishes);
 
     const editDish = (item) => {
         sessionStorage.setItem('dishEditDetails', JSON.stringify(item))
@@ -50,7 +50,7 @@ const UserDishCard = () => {
                 getDishes()
             }
             else {
-                console.log(result)
+                //console.log(result)
             }
         }
         else {
@@ -79,8 +79,8 @@ const UserDishCard = () => {
                                 }`} alt="" width={30} className='rounded-full object-cover h-[30px]' />
                         </div>
                         <h3 className='text-xl font-bold text-center'>{item.dishname}</h3>
-                        <div className='flex justify-center items-center gap-3 mt-6 h-[300px]'>
-                            <img src={`${servelURL}/uploads/${item.image}`} alt="" className='w-1/2 rounded-lg' />
+                        <div className='flex justify-center items-center gap-3 mt-6 h-[250px]'>
+                            <img src={`${servelURL}/uploads/${item.image}`} alt="" className='w-3/4 h-3/4 rounded-lg' />
                             <p className='text-center text-sm'>{item.description.split(' ').slice(0, 40).join(' ')}
                             </p>
                         </div>
@@ -91,7 +91,10 @@ const UserDishCard = () => {
                     </div>
                 ))
                     :
-                    <p className='text-center text-2xl text-[#2A373E]'>There is no dish 😒</p>
+                    
+                    <div>
+                        <p className='text-center text-2xl font-semibold'>There is no dish 😒</p>
+                    </div>
                 }
 
 

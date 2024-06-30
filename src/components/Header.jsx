@@ -68,7 +68,7 @@ const Header = () => {
         }
     }, [userDetails.profileImg]);
 
-    // console.log(preview);
+    // //console.log(preview);
     return (
 
         <>

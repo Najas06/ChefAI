@@ -23,7 +23,7 @@ const AboutMain = () => {
                                 <li><span className='font-semibold text-[#FF725E]'>Personalized Cooking:</span> Every meal can be tailored to individual tastes, dietary preferences, and nutritional needs.</li>
                                 <li><span className='font-semibold text-[#FF725E]'>Culinary Confidence:</span> Even the most inexperienced cooks can prepare delicious, healthy meals confidently.</li>
                             </ul>
-                            <img src={AboutOurVision} alt="" className='w-1/3 max-sm:w-1/2 mb-3'/>
+                            <img src={AboutOurVision} alt="aboutourvision" className='w-1/3 max-sm:w-1/2 mb-3'/>
                         </div>
                     </div>
                     <div className='w-1/2 bg-[#ff725e] p-6 rounded-2xl h-[450px] items-center justify-center flex flex-col max-xl:w-full max-lg:h-auto'>
@@ -36,7 +36,7 @@ const AboutMain = () => {
                                 <li><span className='font-semibold text-[#2a373e]'>User-Friendly Interface:</span> An intuitive design that makes it easy to find recipes, follow instructions, and explore new dishes.</li>
                                 <li><span className='font-semibold text-[#2a373e]'>Community Feedback:</span> Share your experiences and get feedback from the ChefAI community, making cooking a collaborative and social experience.</li>
                             </ul>
-                            <img src={AbooutOffer} alt="" className='w-1/3 max-sm:w-1/2 mb-3'/>
+                            <img src={AbooutOffer} alt="aboutoffer" className='w-1/3 max-sm:w-1/2 mb-3'/>
                         </div>
                     </div>
                 </div>

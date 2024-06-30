@@ -5,7 +5,7 @@ import GenerateDish from './GenerateDish'
 import { Toaster, toast } from 'sonner'
 const Hero = () => {
     const [dish, setDish] = useState('') // input dish
-    // console.log(dish);
+    // //console.log(dish);
     const [token, setToken] = useState('') //when user is logged  store token
     const [generateDishDetails, setGenerateDishDetails] = useState(null) // store generate dish details
 
@@ -31,7 +31,7 @@ const Hero = () => {
             toast.error("Please login first")
         }
     }
-    // console.log(generateDishDetails); // show the generate dish details
+    // //console.log(generateDishDetails); // show the generate dish details
     useEffect(() => {
         if (sessionStorage.getItem('token')) {
             setToken(sessionStorage.getItem('token'))

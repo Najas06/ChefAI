@@ -31,7 +31,7 @@ const UserProfileMain = () => {
       </div>
       <UserDishCard/>
     </motion.div>
-      <img src={userWave} alt="" className='mt-10 w-full -mb-3 max-sm:w-fit'/>
+      <img src={userWave} alt="" className='mt-20 w-full -mb-3 max-sm:w-fit'/>
     </>
   )
 }

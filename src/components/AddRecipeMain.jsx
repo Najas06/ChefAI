@@ -71,7 +71,7 @@ const AddRecipeMain = () => {
         if(dishIngredients!==""){setDetails({...dishDetails,dishIngred:dishIngredients.split(',')})}   
     },[dishIngredients])
 
-    console.log(dishDetails);
+    //console.log(dishDetails);
     return (
         <>
             <motion.div 
@@ -104,7 +104,7 @@ const AddRecipeMain = () => {
 
                         <button className='transition duration-150 bg-[#ff725e] text-white px-4 py-1 rounded-xl font-semibold hover:text-[#2a373e]' onClick={(e)=>handleAddDish(e)}>Submit</button>
                     </div>
-                    <img src={createPost} alt="" />
+                    <img src={createPost} alt="createpost" />
                 </motion.div>
             </motion.div>
             <Toaster richColors position='top-center' />

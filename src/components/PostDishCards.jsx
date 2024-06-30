@@ -22,7 +22,7 @@ const PostDishCards = ({allDishes}) => {
                     <div className='bg-[#E9E9E9] p-3 rounded-3xl text-[#2A373E]'>
                     <h3 className='text-xl font-bold text-center mt-3'>{item.dishname}</h3>
                     <div className='flex justify-center items-center gap-3 mt-6 h-[250px]'>
-                        <img src={`${servelURL}/uploads/${item.image}`} alt="" className='w-1/2 rounded-lg' />
+                        <img src={`${servelURL}/uploads/${item.image}`} alt="" className='w-3/4 rounded-lg h-3/4' />
                         <p className='text-center text-sm'>{item.description.split(' ').slice(0, 30).join(' ')}...
                         </p>
                     </div>

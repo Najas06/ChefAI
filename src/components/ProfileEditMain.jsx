@@ -21,7 +21,7 @@ const ProfileEditMain = () => {
     const [exisitingProfile, setExisitingProfile] = useState("") // store profile image from session storage
     const [preview, setPreview] = useState('')
 
-    // console.log(token);
+    // //console.log(token);
     const handleUpdate = async (e) => {
         e.preventDefault()
         const { fullname, username, email, password } = userDetails
@@ -36,7 +36,7 @@ const ProfileEditMain = () => {
             reqBody.append("password", password)
             preview ? reqBody.append("profileImg",userDetails.profileImg) : reqBody.append("profileImg", exisitingProfile)
 
-            // console.log(token)
+            // //console.log(token)
             const token = sessionStorage.getItem('token')
             if (preview) {
                 const reqHeader = {
@@ -46,7 +46,7 @@ const ProfileEditMain = () => {
                 const result = await profileUpdateAPI(reqBody, reqHeader)
                 if (result.status == 200) {
                     toast.success("Profile Updated")
-                    // console.log(result)
+                    // //console.log(result)
                     setProfileUpdateStatus(true)
                     sessionStorage.setItem('exisitingUser', JSON.stringify(result.data))
                     setTimeout(() => {
@@ -58,7 +58,7 @@ const ProfileEditMain = () => {
                 }
             }
             else {
-                // console.log(token)
+                // //console.log(token)
                 const reqHeader = {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${token}`

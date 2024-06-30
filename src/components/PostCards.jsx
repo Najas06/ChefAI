@@ -8,15 +8,15 @@ const PostCards = () => {
   const [searchKey,setSearchKey] = useState('')
   const allDishCards = async() => {
     const result = await getAllDishesAPI(searchKey)
-    // console.log(result.data);
+    // //console.log(result.data);
     setAllDishes(result.data)
   }
   
   useEffect(()=>{
     allDishCards()
   },[searchKey])
-  // console.log(allDishes);
-  console.log(searchKey);
+  // //console.log(allDishes);
+  //console.log(searchKey);
   return (
     <>
     <motion.div

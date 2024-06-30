@@ -8,6 +8,7 @@ import Reviews from './Reviews'
 const ReadMoreMain = () => {
   const navigate = useNavigate()
   const [dish, setDish] = useState({
+    id:"",
     dishname:"",
     ingredients:"",
     description:"",
@@ -22,13 +23,14 @@ const ReadMoreMain = () => {
   useEffect(()=>{
     const readDish = JSON.parse(sessionStorage.getItem('dishes'))
     setDish({
+      id:readDish._id,
       dishname:readDish.dishname,
       ingredients:readDish.ingredients,
       description:readDish.description,
       image:readDish.image
     })
   },[])
-  console.log(dish);
+  //console.log(dish);
   return (
     <>
     <motion.div 
@@ -60,8 +62,8 @@ const ReadMoreMain = () => {
             exit={{ y: -10, opacity: 0 }}
             transition={{delay: 0.4, duration: 0.4 }}
             className='mx-6 flex justify-between my-6 gap-5 max-md:flex-col-reverse'>
-            <Reviews/>
-            <Feedback/>
+            <Reviews dish={dish.id}/>
+            <Feedback dish={dish.id}/>
             </motion.div>
     </>
   )

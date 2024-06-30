@@ -15,7 +15,7 @@ const AuthMain = ({ register }) => {
         password: "",
         rePassword: ""
     })
-    console.log(userDetails); // check input value properly working
+    //console.log(userDetails); // check input value properly working
 
     const navigate = useNavigate() // navigate next page
     // user input checking
@@ -39,11 +39,15 @@ const AuthMain = ({ register }) => {
                     reqBody.append("email", email)
                     reqBody.append("profileImg", profileImg)
                     reqBody.append("password", password)
+
+                    const reqHeader = {
+                        'Content-Type': 'multipart/form-data'
+                    }
                     
-                    const result = await registerAPI(reqBody)
+                    const result = await registerAPI(reqBody,reqHeader)
                     if (result.status == 200) {
                         toast.success("Account created successfully")
-                        console.log(result);
+                        //console.log(result);
                         setUserDetails({
                             fullname: "",
                             username: "",
@@ -55,7 +59,7 @@ const AuthMain = ({ register }) => {
                         navigate("/login")
                     }
                     else{
-                        // console.log(result)
+                        // //console.log(result)
                         toast.error(result.response.data)
                     }
                 }
@@ -75,7 +79,7 @@ const AuthMain = ({ register }) => {
         else{
             const result = await loginAPI(userDetails)
             if(result.status == 200){
-                console.log(result)
+                //console.log(result)
                 toast.success('Login Successfull')
                 sessionStorage.setItem('exisitingUser',JSON.stringify(result.data.existingUser))
                 sessionStorage.setItem('token',result.data.token)
@@ -89,7 +93,7 @@ const AuthMain = ({ register }) => {
             }
             else{
                 toast.error(`${result.response.data} !`)
-                console.log(result);
+                //console.log(result);
             }
         }
     }

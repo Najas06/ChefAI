@@ -52,10 +52,10 @@ const DishEditMain = () => {
                     setTimeout(()=>{
                         navigate('/userProfile')
                     },2000)
-                    // console.log(result);
+                    // //console.log(result);
                 }else{
                     toast.error('Something went wrong')
-                    // console.log(result);
+                    // //console.log(result);
                 }
             }
             else{
@@ -71,10 +71,10 @@ const DishEditMain = () => {
                     setTimeout(()=>{
                         navigate('/userProfile')
                     },2000)
-                    // console.log(result);
+                    // //console.log(result);
                 }else{
                     toast.error('Something went wrong')
-                    // console.log(result);
+                    // //console.log(result);
                 }
             }
         }
@@ -101,7 +101,7 @@ const DishEditMain = () => {
         }
     },[editIngred])
 
-    // console.log(editDish);
+    // //console.log(editDish);
     return (
         <>
             <motion.div

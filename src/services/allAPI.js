@@ -2,8 +2,8 @@ import { servelURL } from "./baseUrl";
 import { commonAPI } from "./commonAPI";
 
 //register API
-export const registerAPI = async(reqBody)=>{
-    return await commonAPI('POST',`${servelURL}/user/register`,reqBody,"")
+export const registerAPI = async(reqBody,reqHeader)=>{
+    return await commonAPI('POST',`${servelURL}/user/register`,reqBody,reqHeader)
 }
 
 //login API
@@ -40,4 +40,12 @@ export const getAllDishesAPI = async(searchKey)=>{
 //user dish delete API
 export const userDeleteDishAPI = async(id,reqHeader)=>{
     return await commonAPI('DELETE',`${servelURL}/user/delete_dish/${id}`,{},reqHeader) // The reason your API call contains an empty object {} in the reqBody section for a DELETE request might be a misunderstanding of how DELETE requests typically work.
+}
+
+export const dishReviews = async(id)=>{
+    return await commonAPI('GET',`${servelURL}/dish-review/${id}`,"","")
+}
+
+export const addReview = async(id,reqBody)=>{
+    return await commonAPI('POST',`${servelURL}/add-dish-review/${id}`,reqBody,"")
 }
