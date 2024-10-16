@@ -6,12 +6,12 @@ import Footer from '../components/Footer'
 
 const About = () => {
   return (
-    <>
+    <div className='max-w-[1920px] mx-auto'>
     <Header/>
     <AboutMain/>
     <AboutSection/>
     <Footer/>
-    </>
+    </div>
   )
 }
 

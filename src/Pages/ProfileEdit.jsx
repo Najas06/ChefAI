@@ -6,11 +6,11 @@ import Footer from '../components/Footer'
 
 const ProfileEdit = () => {
   return (
-    <>
+    <div className='max-w-[1920px] mx-auto'>
     <Header/>
     <ProfileEditMain/>
     <Footer/>
-    </>
+    </div>
   )
 }
 

@@ -6,12 +6,12 @@ import Footer from '../components/Footer'
 
 const Post = () => {
   return (
-    <>
+    <div className='max-w-[1920px] mx-auto'>
     <Header/>
     <PostMain/>
     <PostCards/>
     <Footer/>
-    </>
+    </div>
   )
 }
 

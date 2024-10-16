@@ -46,7 +46,7 @@ const HeroMain = () => {
                 </motion.div>
                 <h1 className='text-center mt-10 mx-8 text-white text-2xl max-sm:text-xl'><span className='text-[#263238] font-bold '>ChefAI</span> makes cooking enjoyable and hassle-free.Let's elevate your culinary experience together!
                 </h1>
-                <img src={downWave} alt=""  className='w-full object-contain absolute -mt-5 -z-10'/>
+                <img src={downWave} alt=""  className='w-full max-w-[1920px] object-contain absolute -mt-5 -z-10'/>
             </div>
         </div>
     )

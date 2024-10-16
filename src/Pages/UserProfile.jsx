@@ -5,11 +5,11 @@ import Footer from '../components/Footer'
 
 const UserProfile = () => {
   return (
-    <>
+    <div className='max-w-[1920px] mx-auto'>
     <Header />
     <UserProfileMain/>
     <Footer />
-    </>
+    </div>
   )
 }
 
